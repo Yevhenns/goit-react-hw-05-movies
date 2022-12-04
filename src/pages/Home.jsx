@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchTrending } from 'services/API';
 
 export const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
 
   useEffect(() => {
-    fetchTrending().then(res => setTrendMovies(res));
+    fetchTrending().then(setTrendMovies);
   }, []);
 
   return (
@@ -13,7 +14,9 @@ export const Home = () => {
       <h1>Trending today</h1>
       <ul>
         {trendMovies.map(trendMovie => (
-          <li key={trendMovie.id}>{trendMovie.title}</li>
+          <li key={trendMovie.id}>
+            <Link to={trendMovie.id}>{trendMovie.title}</Link>
+          </li>
         ))}
       </ul>
     </>
