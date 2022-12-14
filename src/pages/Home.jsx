@@ -1,24 +1,28 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { fetchTrending } from 'services/API';
+import { getTrendMovies } from 'services/API';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchTrending().then(setTrendMovies);
+    try {
+      getTrendMovies().then(data => {
+        setTrendMovies(data);
+      });
+    } catch (error) {
+      setError(error);
+    }
   }, []);
+
+  console.log(trendMovies);
 
   return (
     <>
       <h1>Trending today</h1>
-      <ul>
-        {trendMovies.map(trendMovie => (
-          <li key={trendMovie.id}>
-            <Link to={trendMovie.id}>{trendMovie.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <MoviesList moviesData={trendMovies} />
+      {error && error.message}
     </>
   );
 };
