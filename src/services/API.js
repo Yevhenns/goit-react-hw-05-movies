@@ -24,3 +24,14 @@ export const getMovieById = async (movieId, credits, reviews) => {
     console.log(error);
   }
 };
+
+export const getMovieBySearch = async query => {
+  try {
+    const response = await axios.get(
+      `/search/movie?api_key=${API_KEY}&query=${query}`
+    );
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};

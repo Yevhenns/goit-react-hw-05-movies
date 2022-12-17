@@ -8,9 +8,6 @@ import {
 } from 'react-router-dom';
 import { getMovieById } from 'services/API';
 
-// import styles from './MovieItem.module.css';
-// import { Spinner } from 'components/Spinner/Spinner';
-
 export const MovieDetails = () => {
   const [movieData, setMovieData] = useState(null);
   const [error, setError] = useState(null);
