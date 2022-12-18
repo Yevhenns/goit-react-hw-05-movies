@@ -16,8 +16,6 @@ export const Home = () => {
     }
   }, []);
 
-  console.log(trendMovies);
-
   return (
     <>
       <h1>Trending today</h1>
