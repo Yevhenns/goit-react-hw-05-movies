@@ -1,6 +1,7 @@
 import { getMovieById } from 'services/API';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './Cast.module.css'
 
 export const Cast = () => {
   const { movieId } = useParams();
@@ -25,7 +26,7 @@ export const Cast = () => {
     <div>
       {isLoading && <p>Loading...</p>}
       {filmCast.length > 0 ? (
-        <ul>
+        <ul className={css.list}>
           {filmCast.map(actor => {
             const { name, profile_path, character } = actor;
             return (

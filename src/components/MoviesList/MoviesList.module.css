@@ -1,9 +1,3 @@
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
 .listItem {
     border-radius: 5px;
     box-shadow: 5px 5px 5px rgb(230, 13, 230);

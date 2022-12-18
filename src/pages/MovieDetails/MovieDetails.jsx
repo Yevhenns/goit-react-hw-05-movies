@@ -7,6 +7,7 @@ import {
   useParams,
 } from 'react-router-dom';
 import { getMovieById } from 'services/API';
+import css from './MovieDetails.module.css'
 
 export const MovieDetails = () => {
   const [movieData, setMovieData] = useState(null);
@@ -37,7 +38,7 @@ export const MovieDetails = () => {
     <div>
       {movieData && (
         <>
-          <Link to={backLink}>
+          <Link to={backLink} className={css.goBack}>
             Go back
           </Link>
           <div>

@@ -37,7 +37,7 @@ export const Movies = () => {
     <div>
       <form onSubmit={HandlerSabmit}>
         <input name="name" type="text" />
-        <button type="submit">submit</button>
+        <button type="submit">Search</button>
       </form>
       {query && searchMovies.length > 0 && (
         <MoviesList moviesData={searchMovies} location={location} />
